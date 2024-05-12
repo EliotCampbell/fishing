@@ -55,9 +55,13 @@
 
         // Проверка выхода рыбы за верхнее ограничение, учитывая высоту курсора, рыбы и отступ сверху
         // Проверка выхода рыбы за нижнее ограничение, учитывая высоту рыбы, курсора и отступ снизу
-        if (fishY <= cursor.height/2 - fish.height/2 + 46  || fishY >= canvas.height - fish.height/2 - cursor.height/2 - 46 - 20) {
-            fishSpeed *= -1
-        } // Инвертируем скорость, если рыба уперлась в стену
+        if (fishY <= cursor.height/2 - fish.height/2 + 46) {
+            fishSpeed = 2 // Инвертируем скорость, если рыба уперлась в стену
+        } else if (fishY >= canvas.height - fish.height/2 - cursor.height/2 - 46 - 20) {
+            fishSpeed = -2
+        }
+
+
 
         fieldY += fieldSpeed // Смещаем поле ниже
 
